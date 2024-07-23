@@ -1,0 +1,21 @@
+.mobile-btn-wrapper{
+    display: flex;
+   justify-content: center; 
+   gap: 1rem;
+}
+
+.secondary{
+    background-color: transparent;
+    width: fit-content;
+    padding: 10px 1rem;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+    color: black;
+    border: 2px solid transparent;
+    border-radius: calc(var(--border-radius) * 2.5 )   ;
+}
+.secondary.active{
+    color: var(--primary);
+    background-color: var(--primary-focus);
+}

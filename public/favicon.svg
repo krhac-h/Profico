@@ -1,0 +1,16 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+@keyframes scaleAnimation {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.7); }
+  100% { transform: scale(1); }
+}
+
+#circle1 {
+  animation: scaleAnimation 2s infinite;
+  transform-origin: center center;
+}
+</style>
+<circle opacity="0.24" cx="10" cy="10" r="10" fill="#BB1E1E" id="circle1"/>
+<circle cx="10" cy="10" r="5" fill="#BB1E1E" id="circle2"/>
+</svg>
