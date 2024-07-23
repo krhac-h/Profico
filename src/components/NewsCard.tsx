@@ -26,7 +26,7 @@ interface Props {
   setMark: React.Dispatch<React.SetStateAction<any[]>>;
 }
 const getCategory = (sources: Source[], itemSourceName: string): string => {
-  let len = itemSourceName.length;
+  const len = itemSourceName.length;
   const foundSource = sources.find(
     (source) => source.name.slice(0, len) === itemSourceName.slice(0, len)
   );

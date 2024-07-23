@@ -1,17 +1,16 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useSearchParams } from "react-router-dom";
 
 import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
-import { fetchNews, fetchSources, Article , Source } from "../endpoints";
+import { fetchNews, fetchSources, Article } from "../endpoints";
 
 import { useBookmarkContext } from "../components/BookmarkContext";
 
 import Layout from "../layouts/MainLayout";
-import Sidebar from "../components/Sidebar";
 import PopupBar from "../components/PopupBar";
 import NewsCard from "../components/NewsCard";
 
@@ -24,15 +23,13 @@ interface NewsResponse {
   articles: Article[];
 }
 
-interface SourcesResponse {
-  sources: Source[];
-}
 
 const Homepage = () => {
   ////////////////////////////////////////////////////
   const { ref, inView } = useInView();
   const { mark, setMark } = useBookmarkContext();
   const [searchParams, setSearchParams] = useSearchParams();
+
   ////////////////////////////////////////////////////
   const { data: CATS } = useQuery({
     queryKey: ["categories"],
@@ -59,7 +56,7 @@ const Homepage = () => {
     if (inView && !isFetchingNextPage) {
       fetchNextPage();
     }
-  }, [inView, fetchNextPage]);
+  }, [inView, fetchNextPage, isFetchingNextPage]);
 
   useEffect(() => {
     window.localStorage.setItem("bookmarked_array", JSON.stringify(mark));
