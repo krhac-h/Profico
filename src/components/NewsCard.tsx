@@ -1,4 +1,5 @@
 import ArticleImage from "./ArticleImage";
+import { useBookmarkContext } from "../components/BookmarkContext";
 
 interface Source {
   key: string;
@@ -23,6 +24,7 @@ interface Props {
     sources: Source[];
   };
   mark: any[];
+  isMarked: boolean;
   setMark: React.Dispatch<React.SetStateAction<any[]>>;
 }
 const getCategory = (sources: Source[], itemSourceName: string): string => {
@@ -33,7 +35,11 @@ const getCategory = (sources: Source[], itemSourceName: string): string => {
   return foundSource?.category || "other";
 };
 
-const NewsCard: React.FC<Props> = ({ item, CATS, mark, setMark }) => {
+
+
+const NewsCard: React.FC<Props> = ({ item, CATS, mark, isMarked, setMark }) => {
+
+
   return (
     <article key={item.title} className="anim-pop">
       <ArticleImage src={item.urlToImage} />
@@ -47,7 +53,7 @@ const NewsCard: React.FC<Props> = ({ item, CATS, mark, setMark }) => {
         <small className="line-clamp-1">{item.author || "no author"}</small>
         {mark && (
           <button
-            className="bookmark"
+            className={isMarked ? "bookmark disabled" : "bookmark"}
             onClick={() => setMark([...mark, item])}
           ></button>
         )}

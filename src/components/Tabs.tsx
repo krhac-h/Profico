@@ -1,7 +1,7 @@
 import "../styles/Homepage/MobileBtn.css";
 
 import { useState } from "react";
-import LatestNews from "../styles/Homepage/LatestNews";
+import LatestNews from "../components/Homepage/LatestNews";
 
 interface Props {
   tabs?: React.ReactNode;

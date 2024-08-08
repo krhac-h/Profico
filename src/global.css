@@ -45,6 +45,7 @@
   }
 }
 
+
 @media (min-width: 1200px) {
   :root {
     --font-size: 20px;
@@ -382,7 +383,7 @@ svg:not(:root) {
  * Button
  */
 
-button{
+button {
   border: 1px solid transparent;
 }
 
@@ -1617,13 +1618,13 @@ a .active {
 }
 
 
-.relative{
+.relative {
   position: relative;
 }
 
 .bookmark {
   position: absolute;
-  inset: -5px 2px  auto auto ;
+  inset: -5px 2px auto auto;
   width: min-content;
   height: 1.8rem;
   width: 1rem;
@@ -1634,13 +1635,27 @@ a .active {
 
 }
 
+.bookmark:hover {
+  background-color: lightcoral;
+}
+
+.bookmark.disabled {
+  pointer-events: none;
+  background-color: var(--primary);
+}
+
 .bookmark:focus,
 .bookmark .saved {
   background-color: var(--primary);
 }
 
-.center{
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
 }

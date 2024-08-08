@@ -41,8 +41,8 @@ interface CategoryProps extends Props {
   category: string;
 }
 
-const API = import.meta.env.VITE_API_KEY
-// const API = import.meta.env.VITE_API_ALT;
+// const API = import.meta.env.VITE_API_KEY
+const API = import.meta.env.VITE_API_ALT;
 const PAGINATE = import.meta.env.VITE_PAGINATE;
 const COUNTRY = import.meta.env.VITE_COUNTRY;
 
@@ -69,7 +69,7 @@ export const fetchNews = async ({
   q = "us"
 }): Promise<Props> => {
   const res = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=${countryCode}${q ? `&q=${q}` :""}&pageSize=${pageSize}&page=${pageParam}`,
+    `https://newsapi.org/v2/top-headlines?country=${countryCode}${q ? `&q=${q}` : ""}&pageSize=${pageSize}&page=${pageParam}`,
     {
       headers: {
         "X-Api-Key": KEY,
@@ -101,9 +101,11 @@ export const fetchCategory = async ({
   KEY = API,
   countryCode = COUNTRY,
   pageSize = PAGINATE,
+  q
+
 }: CategoryProps): Promise<Props> => {
   const res = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=${countryCode}&category=${category}&pageSize=${pageSize}&page=${pageParam}`,
+    `https://newsapi.org/v2/top-headlines?country=${countryCode}&category=${category}${q ? `&q=${q}` : ""}&pageSize=${pageSize}&page=${pageParam}`,
     {
       headers: {
         "X-Api-Key": KEY,

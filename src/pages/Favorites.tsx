@@ -32,25 +32,28 @@ interface NewsItem {
 }
 
 const Favorites = () => {
-    const { mark} = useBookmarkContext();
+  const { mark, setMark } = useBookmarkContext();
 
   return (
     <Layout>
 
       <div className="container">
         <div>
-          <h2>Favorites</h2>
+          <div className="flex">
+            <h2>Favorites</h2>
+            <button role="button" onClick={() => { setMark([]); localStorage.clear() }}>Clear All</button>
+          </div>
           <div className="grid gap grid-cols-3">
-            {mark.map((item: NewsItem, N: number) => (
+            {mark && mark.map((item: NewsItem, N: number) => (
               <NewsCard key={`favorites-card-${N}`}
-              item={item}
+                item={item}
               ></NewsCard>
             ))}
-            </div>
+          </div>
         </div>
       </div>
 
-    </Layout>
+    </Layout >
   );
 };
 

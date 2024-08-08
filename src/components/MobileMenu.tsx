@@ -38,9 +38,9 @@ const MobileMenu = () => {
             <SearchBar isMobile={true}></SearchBar>
           </section>
           <div className="p1 ">
-            <nav className="grid grid-cols-3">
+            <nav className="grid" style={{ gridTemplateColumns: "repeat(3, minmax(0, 1fr)" }}>
               {listCategory.map((item, N) => (
-                <NavLink key={`mobile-nav-${N}`}to={`${item.slug}`}>
+                <NavLink key={`mobile-nav-${N}`} to={`${item.slug}`}>
                   <span className="navLink">
                     <ReactSVG src={item.ico} />
                     <small>{item.text}</small>
@@ -51,13 +51,13 @@ const MobileMenu = () => {
           </div>
           <button
             onClick={handleToggle}
-            style={{ position: "absolute", top: "-1rem", right: "-1rem", height: "2rem", width: "2rem", padding:"0"}}
+            style={{ position: "absolute", top: "-1rem", right: "-1rem", height: "2rem", width: "2rem", padding: "0" }}
           >
             <ReactSVG src={ICOX} className="mob" />
           </button>
         </div>
-      </dialog>
-    </div>
+      </dialog >
+    </div >
   );
 };
 
